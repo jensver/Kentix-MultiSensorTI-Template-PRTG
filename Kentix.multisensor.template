@@ -1,0 +1,105 @@
+{
+  "prtg": {
+    "description" : {
+      "device": "IP address or FQDN of your Multisensor-LAN",
+      "query": "/api/devices/multisensor/values",
+      "comment": "API documentation https://kentix.com/transfer/api/multisensor"
+    },
+    "result": [
+      {
+        "channel": "Carbon monixide",
+        "value": $["data"]["co"]["value"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+      {
+        "channel": "Carbon Dioxide",
+        "value": $["data"]["co2"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+      {
+        "channel": "Sabotage connection",
+        "value": $["data"]["connection_sabotage"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Sabotage internal",
+        "value": $["data"]["internal_sabotage"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Sabotage power",
+        "value": $["data"]["power_sabotage"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Motion",
+        "value": $["data"]["motion"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Dewpoint",
+        "value": $["data"]["dewpoint"]["value"],
+		"Unit": "Custom",
+		"CustomUnit": "°C",
+		"float": 1,
+        "decimalmode": 2,
+        "LimitMode":1,
+        "LimitMinWarning": -2,
+        "LimitMinError": -10,
+        "LimitMaxWarning": 35,
+        "LimitMaxError": 45
+      },
+	  {
+        "channel": "Humidity",
+        "value": $["data"]["humidity"]["value"],
+		"Unit": "Custom",
+		"CustomUnit": "%",
+		"float": 1,
+        "decimalmode": 2,
+        "LimitMode":1,
+        "LimitMinWarning": 5,
+        "LimitMinError": 10,
+        "LimitMaxWarning": 35,
+        "LimitMaxError": 70
+      },
+	  {
+        "channel": "Temperature",
+        "value": $["data"]["temperature"]["value"],
+		"Unit": "Custom",
+		"CustomUnit": "°C",
+		"float": 1,
+        "decimalmode": 2,
+        "LimitMode":1,
+        "LimitMinWarning": 5,
+        "LimitMinError": -10,
+        "LimitMaxWarning": 35,
+        "LimitMaxError": 45
+      },
+	  {
+        "channel": "Vibration",
+        "value": $["data"]["vibration"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Air Quality",
+        "value": $["data"]["air_quality"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Heat",
+        "value": $["data"]["heat"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Thermal Image",
+        "value": $["data"]["ti"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      },
+	  {
+        "channel": "Door sensor",
+        "value": $["data"]["digital_inputs"][0]["input"]["has_alarm"],
+		"ValueLookup": "kentix.alarm.json"
+      }
+    ]
+  }
+}
